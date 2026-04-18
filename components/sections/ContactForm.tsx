@@ -107,6 +107,21 @@ export default function ContactForm() {
               </div>
             ) : (
               <form action={formAction} className="space-y-5">
+                {/* Honeypot: hidden from humans, filled by bots */}
+                <div
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "-9999px", top: "-9999px" }}
+                >
+                  <label htmlFor="website">Sitio web (no llenar)</label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="nombre" className="block text-sm font-medium text-brand-text mb-1.5">
