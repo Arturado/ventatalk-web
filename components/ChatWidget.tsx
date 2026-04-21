@@ -111,7 +111,7 @@ export default function ChatWidget() {
 
     try {
       const response = await fetch(
-        "https://app.ventatalk.com/api/v1/chat/widget",
+        `${process.env.NEXT_PUBLIC_API_URL || "https://app.ventatalk.com"}/api/v1/chat/widget`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
