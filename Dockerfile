@@ -1,10 +1,13 @@
 FROM node:20-alpine
 WORKDIR /app
 
-# Copiar con dueño correcto antes de instalar
+# Dar ownership de /app a node ANTES de cambiar de usuario
+RUN chown -R node:node /app
+
+# Copiar con dueño correcto
 COPY --chown=node:node package.json package-lock.json ./
 
-# Cambiar a non-root antes de npm install (node_modules pertenece a node)
+# Cambiar a non-root antes de npm install
 USER node
 RUN npm install
 
