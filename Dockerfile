@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:25-alpine
 WORKDIR /app
 
 # Dar ownership de /app a node ANTES de cambiar de usuario
